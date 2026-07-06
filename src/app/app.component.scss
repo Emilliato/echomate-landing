@@ -1,0 +1,547 @@
+:host {
+  display: block;
+}
+
+.eyebrow {
+  color: #9db4e5;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.75rem;
+
+  &--center {
+    text-align: center;
+  }
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  max-width: 720px;
+}
+
+// ---------- Nav ----------
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(17, 16, 24, 0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--color-border);
+
+  &__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 900;
+    font-size: 1.05rem;
+    margin-right: auto;
+  }
+
+  &__logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+  }
+
+  &__links {
+    display: flex;
+    gap: 1.75rem;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--color-muted-foreground);
+
+    a:hover {
+      color: var(--color-foreground);
+    }
+
+    @media (max-width: 720px) {
+      display: none;
+    }
+  }
+}
+
+// ---------- Buttons ----------
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  border: 1px solid transparent;
+
+  &__icon {
+    font-size: 0.8em;
+  }
+
+  &--primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: #0b0a12;
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.35);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(139, 92, 246, 0.45);
+    }
+  }
+
+  &--ghost {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--color-foreground);
+    border-color: var(--color-border);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  &--small {
+    padding: 0.55rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  &--large {
+    padding: 0.95rem 1.8rem;
+    font-size: 1rem;
+  }
+}
+
+// ---------- Hero ----------
+
+.hero {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem 4rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 2.5rem;
+  }
+
+  &__glow {
+    position: absolute;
+    top: -220px;
+    right: -160px;
+    width: 620px;
+    height: 620px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.35), transparent 70%);
+    filter: blur(10px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 900px) {
+      .hero__actions,
+      .eyebrow {
+        justify-content: center;
+        display: flex;
+      }
+    }
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    margin-bottom: 1.25rem;
+  }
+
+  &__subtitle {
+    color: var(--color-muted-foreground);
+    font-size: 1.08rem;
+    line-height: 1.6;
+    max-width: 540px;
+    margin-bottom: 2rem;
+
+    @media (max-width: 900px) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+
+    @media (max-width: 900px) {
+      justify-content: center;
+    }
+  }
+
+  &__note {
+    color: var(--color-muted-foreground);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  &__orb {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: clamp(260px, 32vw, 380px);
+  }
+}
+
+.orb {
+  &__glow {
+    position: absolute;
+    width: 78%;
+    height: 78%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.55), transparent 70%);
+    filter: blur(6px);
+    animation: pulse 3.2s ease-in-out infinite;
+  }
+
+  &__core {
+    position: relative;
+    width: 55%;
+    height: 55%;
+    border-radius: 50%;
+    background: linear-gradient(140deg, var(--color-primary), var(--color-primary-light) 55%, var(--color-accent));
+    box-shadow: 0 30px 80px rgba(139, 92, 246, 0.5);
+    animation: float 5s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+// ---------- Shared section layout ----------
+
+.modes,
+.features,
+.how,
+.pricing {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) 1.5rem;
+  text-align: center;
+
+  .section-title {
+    margin: 0 auto 3rem;
+  }
+}
+
+// ---------- Modes ----------
+
+.modes__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mode-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  padding: 2rem 1.5rem;
+  text-align: left;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(139, 92, 246, 0.4);
+  }
+
+  &__icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: var(--color-muted-foreground);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+}
+
+// ---------- Features ----------
+
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 620px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-card {
+  background: linear-gradient(160deg, var(--color-elevated), var(--color-card));
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  padding: 2rem 1.75rem;
+  text-align: left;
+
+  &__icon {
+    font-size: 1.75rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+  }
+
+  p {
+    color: var(--color-muted-foreground);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+}
+
+// ---------- How it works ----------
+
+.how__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  text-align: left;
+
+  @media (max-width: 780px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.how__step {
+  h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin: 1rem 0 0.6rem;
+  }
+
+  p {
+    color: var(--color-muted-foreground);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+.how__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.18);
+  color: var(--color-primary-light);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+// ---------- Pricing ----------
+
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+.pricing-card {
+  position: relative;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  padding: 2.25rem 1.75rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+
+  &--highlighted {
+    background: linear-gradient(165deg, rgba(139, 92, 246, 0.16), var(--color-card) 60%);
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 20px 60px rgba(139, 92, 246, 0.22);
+  }
+
+  &__badge {
+    position: absolute;
+    top: -13px;
+    left: 1.75rem;
+    background: var(--color-primary);
+    color: #0b0a12;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 900;
+  }
+
+  &__tagline {
+    color: var(--color-muted-foreground);
+    font-size: 0.88rem;
+    margin: 0.35rem 0 1.5rem;
+  }
+
+  &__price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__amount {
+    font-size: 2.4rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  &__period {
+    color: var(--color-muted-foreground);
+    font-weight: 600;
+  }
+
+  &__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    li {
+      color: var(--color-muted-foreground);
+      font-size: 0.9rem;
+      padding-left: 1.4rem;
+      position: relative;
+
+      &::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--color-primary-light);
+        font-weight: 900;
+      }
+    }
+  }
+}
+
+// ---------- Final CTA ----------
+
+.cta {
+  max-width: 1180px;
+  margin: 0 auto clamp(3rem, 6vw, 5rem);
+  padding: clamp(3rem, 6vw, 4.5rem) 1.5rem;
+  text-align: center;
+  background: linear-gradient(160deg, rgba(139, 92, 246, 0.16), var(--color-card) 70%);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 32px;
+
+  h2 {
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    color: var(--color-muted-foreground);
+    margin-bottom: 2rem;
+  }
+
+  &__note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+// ---------- Footer ----------
+
+.footer {
+  border-top: 1px solid var(--color-border);
+
+  &__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--color-muted-foreground);
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 800;
+    color: var(--color-foreground);
+  }
+}

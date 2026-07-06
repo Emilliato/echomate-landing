@@ -1,0 +1,136 @@
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top">
+      <img src="app-icon.png" alt="EchoMate" class="nav__logo" />
+      <span>EchoMate</span>
+    </a>
+    <nav class="nav__links">
+      <a href="#modes">Modes</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a class="btn btn--primary btn--small" [href]="downloadUrl">Download</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero__glow"></div>
+    <div class="hero__content">
+      <p class="eyebrow">VOICE-FIRST AI COMPANION</p>
+      <h1>Think out loud.<br />Echo turns it into action.</h1>
+      <p class="hero__subtitle">
+        Talk through an idea, a workout, a meeting, or just your day — EchoMate listens,
+        replies naturally, and turns the conversation into a structured note or action
+        plan. No typing required.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--large" [href]="downloadUrl">
+          <span class="btn__icon">▾</span> Download for Android
+        </a>
+        <a class="btn btn--ghost btn--large" href="#modes">See how it works</a>
+      </div>
+      <p class="hero__note">Free to try · No credit card required</p>
+    </div>
+    <div class="hero__orb" aria-hidden="true">
+      <div class="orb__glow"></div>
+      <div class="orb__core"></div>
+    </div>
+  </section>
+
+  <section id="modes" class="modes">
+    <p class="eyebrow eyebrow--center">COMPANION MODES</p>
+    <h2 class="section-title">One app, four ways to think out loud</h2>
+    <div class="modes__grid">
+      @for (mode of modes; track mode.title) {
+        <div class="mode-card">
+          <span class="mode-card__icon">{{ mode.icon }}</span>
+          <h3>{{ mode.title }}</h3>
+          <p>{{ mode.description }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <p class="eyebrow eyebrow--center">FEATURES</p>
+    <h2 class="section-title">Built to feel like talking to someone who gets it</h2>
+    <div class="features__grid">
+      @for (feature of features; track feature.title) {
+        <div class="feature-card">
+          <span class="feature-card__icon">{{ feature.icon }}</span>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="how">
+    <p class="eyebrow eyebrow--center">HOW IT WORKS</p>
+    <h2 class="section-title">Three steps, zero typing</h2>
+    <div class="how__steps">
+      <div class="how__step">
+        <span class="how__number">1</span>
+        <h3>Pick a mode</h3>
+        <p>Idea, work, gym, or reflection — Echo starts with the right tone for what you're doing.</p>
+      </div>
+      <div class="how__step">
+        <span class="how__number">2</span>
+        <h3>Talk naturally</h3>
+        <p>Speak freely. Echo replies in the moment and keeps listening — even minimized.</p>
+      </div>
+      <div class="how__step">
+        <span class="how__number">3</span>
+        <h3>Get a structured result</h3>
+        <p>End the session and get a real note, task list, or action plan — automatically.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="pricing">
+    <p class="eyebrow eyebrow--center">PRICING</p>
+    <h2 class="section-title">Start free. Upgrade when you need more room to talk.</h2>
+    <div class="pricing__grid">
+      @for (tier of pricingTiers; track tier.name) {
+        <div class="pricing-card" [class.pricing-card--highlighted]="tier.highlighted">
+          @if (tier.highlighted) {
+            <span class="pricing-card__badge">Most popular</span>
+          }
+          <h3>{{ tier.name }}</h3>
+          <p class="pricing-card__tagline">{{ tier.tagline }}</p>
+          <div class="pricing-card__price">
+            <span class="pricing-card__amount">{{ tier.price }}</span>
+            <span class="pricing-card__period">{{ tier.period }}</span>
+          </div>
+          <ul class="pricing-card__features">
+            @for (item of tier.features; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta__inner">
+      <h2>Your next thought is one tap away.</h2>
+      <p>Download EchoMate and start your first session in under a minute.</p>
+      <a class="btn btn--primary btn--large" [href]="downloadUrl">
+        <span class="btn__icon">▾</span> Download for Android
+      </a>
+      <p class="cta__note">Android only for now · iOS coming later</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="app-icon.png" alt="EchoMate" class="nav__logo" />
+      <span>EchoMate</span>
+    </div>
+    <p>© {{ currentYear }} EchoMate. Made for thinkers in motion.</p>
+  </div>
+</footer>

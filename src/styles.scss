@@ -1,0 +1,60 @@
+:root {
+  --color-background: #111018;
+  --color-foreground: #fafafc;
+  --color-card: #1b1924;
+  --color-elevated: #23202d;
+  --color-primary: #8b5cf6;
+  --color-primary-light: #a78bfa;
+  --color-accent: #f59e0b;
+  --color-muted: #292633;
+  --color-muted-foreground: #a8a2b8;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-destructive: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-foreground);
+}

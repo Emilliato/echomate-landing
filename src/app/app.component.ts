@@ -22,14 +22,12 @@ interface PricingTier {
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  // Points at the rolling "latest-apk" GitHub Release created by the
-  // echomate repo's build workflow. That repo is currently private, so
-  // this link won't resolve for anonymous visitors until the repo is made
-  // public (or the APK is mirrored somewhere public, e.g. your own domain
-  // or a Play Store listing once published) — swap this constant once you
-  // have a permanent public download location.
-  readonly downloadUrl =
-    'https://github.com/Emilliato/echomate/releases/download/latest-apk/echomate-release.apk';
+  // Served directly from this same public Pages site (public/echomate-release.apk)
+  // so it works regardless of the private echomate repo's visibility. This
+  // is a manual copy, not wired to CI — swap in a Play Store link once
+  // published, or point back at a public release/CDN if this file grows
+  // unwieldy to keep committing by hand.
+  readonly downloadUrl = 'echomate-release.apk';
 
   readonly currentYear = new Date().getFullYear();
 
